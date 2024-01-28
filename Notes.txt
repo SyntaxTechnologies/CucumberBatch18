@@ -1,0 +1,57 @@
+Class 1 -
+
+Cucumber -
+
+Cucumber - cucumber is a tool
+Gherkin - gherkin is a language
+BDD - BDD is an approach (behavioral driven development)
+
+
+cucumber is a tool which allows us to write gherkin language that helps us implementing BDD approach in test automation.
+
+whenever we write BDD scenarios, we will write from end user point of view.
+
+Given - pre condition
+when - performing actions
+Then - expected result
+And - supporting tag
+
+every test case in cucumber will be considered as scenario.
+
+why framework -
+
+no reporting strcuture in selenium
+no proper execution point
+no proper segregation of screens of the application
+
+
+group id  - org.syntax
+artifact id - CucumberBatch18
+
+under src - we have 2 folders
+main - developing the application
+test - test the application
+
+delete main - we don't need it
+ in test - we need 2 things
+
+ technical - java
+ non - technical - resources
+
+ the end goal is to test the application
+ functional testing - UI
+
+Given user is navigated to HRMS application
+When user enters admin username and password
+And user clicks on login button
+Then user is successfully logged in
+
+User story - search an employee in HRMS
+Scenario 1 - search employee by ID
+Scenario 2 - search employee by name
+
+
+
+
+
+
