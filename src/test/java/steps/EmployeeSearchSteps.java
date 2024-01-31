@@ -40,4 +40,9 @@ public class EmployeeSearchSteps extends CommonMethods {
         System.out.println("Employee can be seen clearly");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
+
+    @When("user enters valid employee name")
+    public void user_enters_valid_employee_name() {
+        driver.findElement(By.id("empsearch_employee_name_empName")).sendKeys("abel");
+    }
 }
