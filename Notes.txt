@@ -50,6 +50,26 @@ User story - search an employee in HRMS
 Scenario 1 - search employee by ID
 Scenario 2 - search employee by name
 
+Class 2-
+
+recap -
+Cucumber allows us to write scenarios in gherkin language
+as a maven project, we created the framework skeleton
+
+main
+test - here we write code to test the application
+java - for all the technical parts
+resources - for all the non tech parts
+
+feature file - in this, we write scenarios
+steps package - to keep all step defs
+
+utils  package is for all the utility classes
+
+We need to control the flow of execution
+to execute all the test cases
+to execute some of the test cases
+to execute one of the test cases
 
 
 

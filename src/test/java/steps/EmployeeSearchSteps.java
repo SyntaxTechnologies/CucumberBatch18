@@ -4,13 +4,14 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.CommonMethods;
 
 import java.time.Duration;
 
 
-public class EmployeeSearchSteps {
+public class EmployeeSearchSteps extends CommonMethods {
 
-    public WebDriver driver;
+    //public WebDriver driver;
 
     @When("user clicks on PIM option")
     public void user_clicks_on_pim_option() {
