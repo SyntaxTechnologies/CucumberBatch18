@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import utils.CommonMethods;
 
+import java.io.IOException;
 import java.time.Duration;
 
 public class LoginSteps extends CommonMethods {
@@ -15,10 +16,11 @@ public class LoginSteps extends CommonMethods {
   // public WebDriver driver;
 
     @Given("user is navigated to HRMS application")
-    public void user_is_navigated_to_hrms_application() {
-        driver = new ChromeDriver();
-        driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/auth/login");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    public void user_is_navigated_to_hrms_application(){
+        openBrowserAndLaunchApplication();
+       // driver = new ChromeDriver();
+        //driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/auth/login");
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @When("user enters admin username and password")

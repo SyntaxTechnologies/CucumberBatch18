@@ -71,6 +71,26 @@ to execute all the test cases
 to execute some of the test cases
 to execute one of the test cases
 
+Class 3 -
+recap -
+
+runner class
+
+we need junit to work with cucumber
+cucumber options-
+features - the path of features directory to execute all the TC's in one go
+glue - the path of the steps package, runner class will find all the step defs here
+dry run - if we set it to true, it will stop actual executiomn and scans all the steps
+if any step is missing, it will give me step definition for that step
+if we set it to false, then again execution will st6art
+tags - when we need to execute specific group of test cases or any specific TC
+we use tags.
+There is no limitation of using tags in scenarios
+
+if I want to execute scenarios based on 2 conditions
+
+
+we need config.prop to add all the configuration parameters
 
 
 

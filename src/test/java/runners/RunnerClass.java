@@ -16,7 +16,10 @@ import org.junit.runner.RunWith;
         //dry run stops the actual execution when set to true
        //it will scan all the steps definitions and provide if there is any step def missing
         dryRun = false,
-        tags = "@regression"
+      //tags = "@sprint1 and @sprint4"
+      //  tags = "@sprint1 or @sprint5 or @sprint2 or @sprint6"
+        tags = "@sprint1",
+        plugin = {"pretty"}
 )
 
 public class RunnerClass {
