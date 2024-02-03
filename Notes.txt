@@ -104,6 +104,9 @@ plugin - pretty  - it prints all the step definitions in console
 
 common methods - we have all the common methods here
 
+hooks - we will write the pre-condition and post-condition here
+hooks class will always be in steps package
+
 
 
 
