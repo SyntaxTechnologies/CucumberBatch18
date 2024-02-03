@@ -106,6 +106,27 @@ common methods - we have all the common methods here
 
 hooks - we will write the pre-condition and post-condition here
 hooks class will always be in steps package
+@before tag for pre condition
+@after tag for post condition
+
+background - in background, we write all the steps in feature file
+which is common in all the scenarios.
+once the flow is broken, we cannot write steps after that in background
+doesn't matter how many steps are common after flow is broken, we cannot write
+them in background because flow has already broke
+
+background is limited to one feature file
+it means for every feature file background will be different
+
+hooks vs background
+hooks are applicable for all feature files
+background is applicable for one feature file
+ flow of execution -
+ hooks will execute first
+ then background will execute
+ then scenario will execute
+
+
 
 
 

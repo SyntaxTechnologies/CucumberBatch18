@@ -36,4 +36,16 @@ public class AddEmployeeSteps extends CommonMethods {
         System.out.println("Employee Added");
     }
 
+
+    @When("user enters {string} {string} and {string}")
+    public void user_enters_and(String firstName, String middleName, String lastName) {
+        WebElement firstNameLoc = driver.findElement(By.xpath("//*[@id='firstName']"));
+        WebElement middleNameLoc = driver.findElement(By.xpath("//*[@id='middleName']"));
+        WebElement lastNameLoc = driver.findElement(By.xpath("//*[@id='lastName']"));
+
+        sendText(firstName, firstNameLoc);
+        sendText(middleName,middleNameLoc);
+        sendText(lastName, lastNameLoc);
+    }
+
 }
