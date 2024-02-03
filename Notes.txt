@@ -126,6 +126,11 @@ background is applicable for one feature file
  then background will execute
  then scenario will execute
 
+data driven testing
+DDT -
+when your one scenario is executing against multiple sets of data
+our framework is hybrid - it supports BDD and DDT
+
 
 
 
