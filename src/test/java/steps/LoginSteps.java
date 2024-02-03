@@ -45,4 +45,21 @@ public class LoginSteps extends CommonMethods {
         System.out.println("My test is passed");
     }
 
+    @When("user enters {string} and {string} and verify the {string}")
+    public void user_enters_and_and_verify_the
+            (String usernameValue, String passwordValue, String errorMessage) {
+        WebElement usernameField = driver.findElement(By.id("txtUsername"));
+        WebElement passwordField = driver.findElement(By.id("txtPassword"));
+        WebElement loginButton =  driver.findElement(By.id("btnLogin"));
+
+        sendText(usernameValue, usernameField);
+        sendText(passwordValue, passwordField);
+        click(loginButton);
+        //to get the error message, we need this web element
+        WebElement errorLoc = driver.findElement(By.id("spanMessage"));
+        String errorMessageValue = errorLoc.getText();
+        System.out.println(errorMessageValue);
+        //validation of error message is pending
+    }
+
 }

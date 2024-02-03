@@ -20,16 +20,16 @@ Feature: Add Employees in HRMS
     And user clicks on save button
     Then employee added successfully
 
-  @examples @regression
-  Scenario Outline: Adding employees for data driven testing from feature file
-    When user enters "<firstName>" and "<middleName>" and then "<lastName>"
-    And user clicks on save button
-    Then employee added successfully
-    Examples:
-      | firstName | middleName | lastName |
-      |damla      |ms          |dayal     |
-      |savera     |ms          |usman     |
-      |sino       |ms          |karimi    |
+    @examples @regression
+    Scenario Outline: Adding employees for data driven testing from feature file
+      When user enters "<firstName>" and "<middleName>" and then "<lastName>"
+      And user clicks on save button
+      Then employee added successfully
+      Examples:
+        | firstName | middleName | lastName |
+        |damla      |ms          |dayal     |
+        |savera     |ms          |usman     |
+        |sino       |ms          |karimi    |
 
 
 
