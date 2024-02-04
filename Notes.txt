@@ -161,6 +161,10 @@ we will keep locators for this page in the respective class
 login page locators will be in loginpage class and so on
 we call these locators as object repositories
 
+first, create page class and add object repository
+then create the constructor and call page factory
+then create the object of the class in page initializer class
+then comment out previous web element and call objects  with web elements
 
 
 

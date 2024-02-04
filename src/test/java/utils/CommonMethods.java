@@ -4,6 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.devtools.v85.page.Page;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -12,12 +13,11 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
-public class CommonMethods {
+public class CommonMethods extends PageInitializer {
 
     public static WebDriver driver;
 
     public void openBrowserAndLaunchApplication() {
-//
         switch (ConfigReader.read("browser")){
             case "Chrome":
                 driver=new ChromeDriver();
@@ -37,6 +37,8 @@ public class CommonMethods {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.get(ConfigReader.read("url"));
+        //this ,method will call all the objects
+        initializePageObjects();
     }
 
     public void closeBrowser() {

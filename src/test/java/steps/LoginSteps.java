@@ -26,7 +26,7 @@ public class LoginSteps extends CommonMethods {
 
     @When("user enters admin username and password")
     public void user_enters_admin_username_and_password() {
-        LoginPage login = new LoginPage();
+     //   LoginPage login = new LoginPage();
       // driver.findElement(By.id("txtUsername")).sendKeys("admin");
      //   WebElement usernameField = driver.findElement(By.id("txtUsername"));
       //  WebElement passwordField = driver.findElement(By.id("txtPassword"));
@@ -38,7 +38,7 @@ public class LoginSteps extends CommonMethods {
 
     @When("user clicks on login button")
     public void user_clicks_on_login_button() {
-        LoginPage login = new LoginPage();
+       // LoginPage login = new LoginPage();
       //  WebElement loginButton =  driver.findElement(By.id("btnLogin"));
         click(login.loginButton);
         //driver.findElement(By.id("btnLogin")).click();
@@ -46,8 +46,8 @@ public class LoginSteps extends CommonMethods {
 
     @Then("user is successfully logged in")
     public void user_is_successfully_logged_in() {
-        WebElement welcomeMessage = driver.findElement(By.id("welcome"));
-        Assert.assertTrue(welcomeMessage.isDisplayed());
+      //  WebElement welcomeMessage = driver.findElement(By.id("welcome"));
+        Assert.assertTrue(dashboardPage.welcomeMessageOption.isDisplayed());
         System.out.println("My test is passed");
     }
 
@@ -57,7 +57,7 @@ public class LoginSteps extends CommonMethods {
       //  WebElement usernameField = driver.findElement(By.id("txtUsername"));
         //WebElement passwordField = driver.findElement(By.id("txtPassword"));
         //WebElement loginButton =  driver.findElement(By.id("btnLogin"));
-        LoginPage login = new LoginPage();
+      //  LoginPage login = new LoginPage();
         sendText(usernameValue, login.usernameField);
         sendText(passwordValue, login.passwordField);
         click(login.loginButton);
