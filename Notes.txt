@@ -131,6 +131,42 @@ DDT -
 when your one scenario is executing against multiple sets of data
 our framework is hybrid - it supports BDD and DDT
 
+Class 5 -
+recap -
+
+we can pass data from feature file in terms of parameters
+"data value", it will be considered as a parameter
+
+we can achieve data driven testing using feature file
+we use examples table with scenario outline to pass multiple sets of data
+
+hooks - based on number of data set
+background - based on number of data set
+scenario - based on number of data set
+
+Assertions -
+in cucumber we use, junit assertions.
+
+true - checks the existence of the element/text/field
+equals - checks the exact value of the element
+
+verification - when you check the details on SRS
+validation - when you write code and check in the application
+
+
+POM - page object model design pattern.
+
+as per this design pattern, we have a class for each page available in website
+we will keep locators for this page in the respective class
+login page locators will be in loginpage class and so on
+we call these locators as object repositories
+
+
+
+
+
+
+
 
 
 
