@@ -5,7 +5,6 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -17,9 +16,11 @@ public class ExcelReader {
         // To Bring the data from file into the java program
         List<Map<String,String>> excelData=new ArrayList<>();
 
-        try(FileInputStream fis=new FileInputStream(path);
-            XSSFWorkbook xssfWorkbook=new XSSFWorkbook(fis);){
-            //There can be many sheets we are getting the sheet1 from excel
+        try{
+            FileInputStream fis=new FileInputStream(path);
+
+            XSSFWorkbook xssfWorkbook=new XSSFWorkbook(fis);
+            //There can be many sheets we are getting the sheet1 from Excel
             Sheet sheet=xssfWorkbook.getSheet(sheetName);
             //getting the number of actual rows that contains the data
             int noOfActualRowsWithData=sheet.getPhysicalNumberOfRows();

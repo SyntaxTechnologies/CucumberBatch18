@@ -167,6 +167,12 @@ then create the object of the class in page initializer class
 then comment out previous web element and call objects  with web elements
 
 
+Class 6 -
+
+recap -
+worked with excel reader class - to add multiple employees from excel file
+
+data table - to achieve data driven testing, we need data table
 
 
 
