@@ -20,7 +20,10 @@ import org.junit.runner.RunWith;
       //  tags = "@sprint1 or @sprint5 or @sprint2 or @sprint6"
         tags = "@carlos",
         //from
-        plugin = {"pretty","html:target/cucumber.html"}
+        plugin = {"pretty","html:target/cucumber.html","json:target/cucumber.json"
+                //rerun plugin generates the txt file of all failed test cases
+        ,"rerun:target/failed.txt"
+        }
 )
 
 public class RunnerClass {

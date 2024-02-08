@@ -184,6 +184,27 @@ how we validated the employee from web table
 target folder - every report what you generate will be available inside target folder
 reports can be in html, json etc.
 
+cucumber maven reporting plugin
+in pom.xml file, we have added it
+
+we are executing maven test command to execute the scripts
+
+Since there can be multiple reasons of the script failure,
+we should re-run the failed script,
+we have to add another plugin to rerun the failed test case
+
+different phases of maven lifecycle
+compile - source code converts into binary code
+install - jars will be installed in local repo
+deploy - in this phase. jars will go to remote repo
+package - code will be packaged into jars and tranfer
+verify - checks the validity of the code
+test - here code will be tested
+clean - target folder will be deleted
+
+
+
+
 
 
 
