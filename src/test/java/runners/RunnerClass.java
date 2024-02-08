@@ -19,7 +19,8 @@ import org.junit.runner.RunWith;
       //tags = "@sprint1 and @sprint4"
       //  tags = "@sprint1 or @sprint5 or @sprint2 or @sprint6"
         tags = "@carlos",
-        plugin = {"pretty"}
+        //from
+        plugin = {"pretty","html:target/cucumber.html"}
 )
 
 public class RunnerClass {
