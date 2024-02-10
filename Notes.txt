@@ -202,6 +202,55 @@ verify - checks the validity of the code
 test - here code will be tested
 clean - target folder will be deleted
 
+class 8 - recap -
+
+examples table - scenario outline -
+key and value in table with examples keyword
+keys available in examples table can be used  in multiple steps of scenario
+
+
+data table - scenario
+key and value in table without examples keyword
+keys and value in datable will be available for just one step
+
+reports - html report -
+we need artifacts.
+runner class , under plugin - target folder
+json report -
+runner class, under plugin - target folder
+
+we use pom.xml file as an execution file
+it is our build management tool file
+maven is our build management tool
+
+different phases of maven lifecycle
+compile - source code converts into binary code
+install - jars will be installed in local repo
+deploy - in this phase. jars will go to remote repo
+package - code will be packaged into jars and transfer
+verify - checks the validity of the code
+test - here code will be tested
+clean - target folder will be deleted
+
+screenshot method -
+array of byte
+get time stamp method, it returns time in desired pattern
+
+Scenario class holds the complete information about execution
+log4j
+log file - details -
+
+execution logs - execution details/records
+
+console log -
+
+this is for local execution - log file
+
+instead of reading the details of execution in console, you create separate file
+as log file
+
+
+
 
 
 

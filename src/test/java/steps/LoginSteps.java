@@ -3,6 +3,7 @@ package steps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.log4j.xml.DOMConfigurator;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.LoginPage;
 import utils.CommonMethods;
 import utils.ConfigReader;
+import utils.Log;
 
 public class LoginSteps extends CommonMethods {
     //we don't need this driver, since it is coming from common methods class
@@ -30,9 +32,17 @@ public class LoginSteps extends CommonMethods {
       // driver.findElement(By.id("txtUsername")).sendKeys("admin");
      //   WebElement usernameField = driver.findElement(By.id("txtUsername"));
       //  WebElement passwordField = driver.findElement(By.id("txtPassword"));
-        sendText(ConfigReader.read("userName"),login.usernameField);
-        sendText(ConfigReader.read("password"),login.passwordField);
-       //driver.findElement(By.id("txtPassword")).sendKeys("Hum@nhrm123");
+      //dom configurator - it is a class which allows us to add log4j.xml in our code
+      DOMConfigurator.configure("log4j.xml");
+      Log.startTestCase("My login test case");
+      Log.info("My test case is executing");
+      Log.info("I am testing log4j functionality");
+      sendText(ConfigReader.read("userName"),login.usernameField);
+      sendText(ConfigReader.read("password"),login.passwordField);
+      Log.endTestCase("Finish");
+       //login.enterUserName();
+       //login.enterPassword();
+        //driver.findElement(By.id("txtPassword")).sendKeys("Hum@nhrm123");
        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
