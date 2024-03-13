@@ -43,6 +43,12 @@ Feature: Add Employees in HRMS
     Scenario: Adding employees from excel file
       When user adds multiple employees from excel and verify the employee has added
 
+  @dbTest
+  Scenario: Adding employee from feature file
+    When user enters "aaron" "ms" and "sairam"
+    And user clicks on save button
+    And employee added successfully
+    And fetch the information from backend
 
 
 

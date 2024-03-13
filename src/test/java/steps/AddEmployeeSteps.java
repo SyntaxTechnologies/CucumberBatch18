@@ -1,11 +1,14 @@
 package steps;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import pages.AddEmployeePage;
 import utils.CommonMethods;
+import utils.DbUtils;
 import utils.ExcelReader;
 
 import java.io.IOException;
@@ -13,6 +16,13 @@ import java.util.List;
 import java.util.Map;
 
 public class AddEmployeeSteps extends CommonMethods {
+
+
+
+    String firstNameFE;
+    String middleNameFE;
+    String lastNameFE;
+    String employeeId;
 
     @When("user clicks on Add Employee option")
     public void user_clicks_on_add_employee_option() {
@@ -48,7 +58,12 @@ public class AddEmployeeSteps extends CommonMethods {
       //  WebElement firstNameLoc = driver.findElement(By.xpath("//*[@id='firstName']"));
       //  WebElement middleNameLoc = driver.findElement(By.xpath("//*[@id='middleName']"));
       //  WebElement lastNameLoc = driver.findElement(By.xpath("//*[@id='lastName']"));
-
+    // Coping the information from local variables into instance variables so that we can access it in other methods
+        firstNameFE=firstName;
+        middleNameFE=middleName;
+        lastNameFE=lastName;
+        // fetching the employee id from frontend so that we can write our query using it.
+        employeeId= addEmployeePage.empIdLoc.getAttribute("value");
         sendText(firstName, addEmployeePage.firstNameLoc);
         sendText(middleName, addEmployeePage.middleNameLoc);
         sendText(lastName, addEmployeePage.lastNameLoc);
@@ -132,5 +147,21 @@ public class AddEmployeeSteps extends CommonMethods {
         }
 
     }
+
+    @And("fetch the information from backend")
+    public void fetchTheInformationFromBackend() {
+
+        String query="select emp_firstname,emp_middle_name,emp_lastname from hs_hr_employees where employee_id="+employeeId;
+        List<Map<String,String>>  data= DbUtils.fetch(query);
+       Map<String,String> rowDataMap=data.get(0);
+       String firstNameDB=rowDataMap.get("emp_firstname");
+       String middleNameDB=rowDataMap.get("emp_middle_name");
+       String lastNameDB=rowDataMap.get("emp_lastname");
+       Assert.assertEquals(firstNameFE,firstNameDB);
+       Assert.assertEquals(middleNameFE,middleNameDB);
+       Assert.assertEquals(lastNameFE,lastNameDB);
+
+    }
+
 
 }
