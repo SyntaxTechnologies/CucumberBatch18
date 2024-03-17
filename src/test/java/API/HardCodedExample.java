@@ -3,6 +3,7 @@ package API;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -19,23 +20,7 @@ public class HardCodedExample {
     static String employee_id;
     String token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTA2ODgxOTYsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTcxMDczMTM5NiwidXNlcklkIjoiNjQ1MiJ9.PsOK1XpInWKd19jSgMvEKEm3OHckYLvoX0eRcstgRJk";
 
-    @Test
-    public void bgetCreatedEmployee(){
-        //prepare the request
-        RequestSpecification request = given().
-                header("Content-Type","application/json").
-                header("Authorization",token).
-                queryParam("employee_id",employee_id);
 
-
-        //hitting the endpoint
-        Response response = request.when().get("/getOneEmployee.php");
-
-        //validate the response
-        response.then().assertThat().statusCode(200);
-        response.prettyPrint();
-
-    }
 
     @Test
     public void acreateEmployee(){
@@ -69,5 +54,70 @@ public class HardCodedExample {
         employee_id = response.jsonPath().getString("Employee.employee_id");
     }
 
+    @Test
+    public void bgetCreatedEmployee(){
+        //prepare the request
+        RequestSpecification request = given().
+                header("Content-Type","application/json").
+                header("Authorization",token).
+                queryParam("employee_id",employee_id);
+
+
+        //hitting the endpoint
+        Response response = request.when().get("/getOneEmployee.php");
+        //validate the response
+        response.then().assertThat().statusCode(200);
+        response.prettyPrint();
+
+        String temporaryEmpId =
+                response.jsonPath().getString("employee.employee_id");
+        //here we are comparing both emp id's from get and post call
+        Assert.assertEquals(temporaryEmpId, employee_id);
+        //validate the body from get call
+        response.then().assertThat().
+                body("employee.emp_lastname",equalTo("germeen"));
+        response.then().assertThat().
+                body("employee.emp_firstname",equalTo("mario"));
+    }
+
+    @Test
+    public void cUpdateEmployee(){
+        //prepare the request
+        RequestSpecification request = given().
+                header("Content-Type","application/json").
+                header("Authorization",token).
+                body("{\n" +
+                        "  \"employee_id\": \""+employee_id+"\",\n" +
+                        "  \"emp_firstname\": \"thomas\",\n" +
+                        "  \"emp_lastname\": \"kartal\",\n" +
+                        "  \"emp_middle_name\": \"hobbes\",\n" +
+                        "  \"emp_gender\": \"F\",\n" +
+                        "  \"emp_birthday\": \"2014-03-09\",\n" +
+                        "  \"emp_status\": \"doubtful\",\n" +
+                        "  \"emp_job_title\": \"philosopher\"\n" +
+                        "}");
+
+        //hitting the endpoint
+        Response response = request.when().put("/updateEmployee.php");
+        //validation of response
+        response.then().assertThat().statusCode(200);
+        response.then().assertThat().
+                body("Message",equalTo("Employee record Updated"));
+        response.prettyPrint();
+    }
+
+    @Test
+    public void dGetUpdatedEmployee(){
+        //prepare the request
+        RequestSpecification request = given().
+                header("Content-Type","application/json").
+                header("Authorization", token).
+                queryParam("employee_id",employee_id);
+        //hitting the endpoint
+        Response response = request.when().get("/getOneEmployee.php");
+        //validation
+        response.prettyPrint();
+        response.then().assertThat().statusCode(200);
+    }
 
 }
