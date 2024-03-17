@@ -836,6 +836,12 @@ in rest assured - base URI = Base URL
 RequestSpecification = in this, we specify the request we need to send to get
 the response
 
+we use @test from junit to run the test
+
+hamcrest matchers - this is the class which contains method to perform assertions
+
+jsonPath - it is a class which helps us to get the keys and values from the body/payload
+jsonPath() - this method belongs to jsonPath class
 
 
 
