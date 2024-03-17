@@ -249,6 +249,631 @@ this is for local execution - log file
 instead of reading the details of execution in console, you create separate file
 as log file
 
+-------------------------------------------------------------------------------------
+
+API -
+
+API - Application programming interface
+
+Restaurant -
+
+
+Client - the one who sends the request
+server - the one who responds to the request
+API - the intermediator in between client and server
+
+
+Client - server architecture
+
+1 tier architecture -
+
+Presentation layer - whatever we see on the UI is the presentation layer
+Application/business layer - where the logic of the application is written
+Data layer - where all the data stored. (DB)
+
+when the presentation layer, application layer and data layer are available at one place. 1 tier architecture.
+
+example - desktop based application, standalone application. such as calculator, ms paint, notepad, sticky etc.
+
+
+2 tier architecture -
+
+when the presentation layer is available at one place
+application and data layer are available at another place
+
+example - macd, dominos, subway, starbucks etc.
+
+3 tier architecture -
+
+When the application layer is available at one place
+presentation layer is another place
+data layer is available at another place
+
+example - websites, apps etc
+
+
+n-tier architecture -
+
+When the n number of application layer is available at one place
+n number of presentation layer is another place
+n number of data layer is available at another place
+
+example - FB, IG etc.
+
+Why do we need to Test API?
+
+123ABC
+123ABC
+
+for checking the correct data is transferred or not.
+for security purpose.
+
+
+DNS - domain name server
+
+google.com
+
+operations we did while testing front end and back end
+
+create a record in the system
+retrieving a record from the system
+updating a record in the system
+deleting a record from the system
+
+CRUD Operations -
+
+HTTP - hyper-text transfer protocol - it allows us to communicate over the internet
+
+CRUD -
+
+POST - creating a record, we use POST method
+GET - retrieving a record.
+PUT - updating a record.
+DELETE - deleting a record.
+
+API's which are hosted over the internet are called web services.
+
+All the web services are API's but all the API's are not web services.
+
+There are 2 types of web services -
+- REST (representational state transfer) - less secure -
+- SOAP (Simple object access protocol) - more secure -
+
+We are going to test REST web services -
+
+
+Base URL - uniform resource locator - www.amazon.com
+End point - specific information we need - /home-good-kitchen
+Base URI - Base URL + end Point - www.amazon.com/home-good-kitchen
+
+Swagger document - this document has all the details about API request and reponse.
+
+
+Class 2 -
+
+Recap -
+
+API - it is an intermediator that communicates in between front end to back-end
+
+client - server (API establishes the link of communication)
+
+client - the one who send the request
+server - the one who respond to the request
+API - middle man
+
+
+client - server architecture -
+1-tier architecture - all the layers are in one place.
+2-tier architecture - Presentation layer is at one place, and 2 layers available at another place
+3-tier architecture - presentation is at one place, application is at 2nd place and data layer is at another place
+n-tier architecture - n numbers of all layers available at different locations.
+
+HTTP - it is a protocol which allows us to communicate over the internet.
+
+CRUD - create, retrieve, update, delete
+
+POST, GET, PUT, DELETE
+
+Base URL - the location where all API's are available
+Endpoint - the specific API location we need to work with
+
+Base URI - base URL + end point
+
+Swagger document - this document contains all the details about the API's we need to test.
+QA team will get it from dev team
+
+the first entry you make in any system is admin. with the help of admin, you will perform other operations
+
+Making a request to add an admin user -
+
+Base URL - hrm.syntaxtechs.net/syntaxapi/api
+End point - /createUser.php
+
+Base URI - hrm.syntaxtechs.net/syntaxapi/api/createUser.php
+
+Type of method - POST
+
+Body -
+
+{
+  "name": "adminbatch18",
+  "email": "testbatch18@test.com",
+  "password": "Test@123"
+}
+
+
+Format of the body - In JSON format
+
+Javascript object notation - it is just a format of data in key value pairs
+syntax of JSON
+
+{
+"name":"sohel",
+"country":"india"
+}
+
+
+CONTENT - TYPE - application/json
+
+
+Response -
+Status code  -
+if it is creating a record - 201
+if it is a successfull message - 200
+
+
+
+if the syntax is incorrect - 400
+if the method type is incorrect - 405
+if the problem is with authentication - 403
+if the problem is with the response - 404
+
+POST REQUEST -
+Base URI - Base URL + end point
+Type of Method
+body
+content-type
+
+response - 201 created
+
+-----------------------------------------------------------------
+
+
+there are 2 types of API's - public API and private API
+
+how API keeps security - private API
+
+Authentication and Authorization
+
+Authentication - Confirms your identity and gives you permission to use the system.
+Authorization - Controls whether you are allowed to perform certain operations in the system
+Who are you?
+Are you allowed to use system?
+Show your ID?
+What permission you have?
+
+------------------------------------------------------------------
+
+There are 2 types of applications -
+
+Statefull application - when the state of the server memory is set to true, it is stateful application
+
+Stateless application - when the state of the server memory is set to false, it is stateless application
+
+
+
+-------------------------------------------------------------------
+Generate Token -
+
+Base URI = hrm.syntaxtechs.net/syntaxapi/api/generateToken.php
+Type of Method = POST
+
+Body/Paylod = format of the body JSON
+
+{
+  "email": "testbatch@test118.com",
+  "password": "Test@123"
+}
+
+content-type = application/json
+
+
+response -
+
+Json Web Token - JWT
+
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.
+eyJpYXQiOjE3MDk0OTIyNjYsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTcwOTUzNTQ2NiwidXNlcklkIjoiNjQ1MiJ9.
+i0CMC7ZOZM4cVdYFnnjZdsYAYs7Ejex2eFx_bFKyxRw
+
+JWT has 3 parts -
+header -
+type of token and algorithm used to generate it
+payload -
+issuer, time of issue, expiry time, user id
+signature -
+verify the same message has been transferred from server to client
+
+
+JWT has 3 types -
+
+Bearer token
+MAC token
+Grants
+
+
+mostly we work with bearer token
+
+--------------------------------------------------------------------------------------
+
+CREATE AN EMPLOYEE -
+
+Base URI - hrm.syntaxtechs.net/syntaxapi/api/createEmployee.php
+Type of method - POST
+Payload -
+
+{
+  "emp_firstname": "mario",
+  "emp_lastname": "germeen",
+  "emp_middle_name": "ms",
+  "emp_gender": "M",
+  "emp_birthday": "2004-08-05",
+  "emp_status": "permanent",
+  "emp_job_title": "QA Engineer"
+}
+
+content-type = application/json
+
+201 created
+
+- API is not taking the correct data from server
+- Server is not adding gender there
+
+
+Class 3 -
+
+Recap -
+
+creating an admin - to perform all CRUD operations, we need an admin.
+
+base URI = base URL + endpoint
+
+swagger document - dev team will provide it
+
+body/payload - it's needed in POST request
+
+json
+
+
+Public API and Private API
+
+Authentication & Authorization
+
+Who are you?
+Are you allowed?
+Show your identity?
+What access you have?
+
+authentication happens first
+
+statefull application - when the server memory is set to true, statefull application.
+
+stateless application - when the server memory is state is set to false, stateless application.
+
+session id - OTP, token, captcha.
+
+Token - JSON Web Token
+
+Bearer token
+MAC token
+Grants
+
+genrated token -
+
+jwt.io - website to see decrypted form of token
+
+header - type of token, algo is used to develop the token
+payload/body - issuer  type, issuer time, expiry time, user id
+signature - same message has been transferred from one end to another
+
+CRUD operations -
+
+Create an employee -
+
+Base URI - base URL + endpoint
+
+Type of request - POST
+
+Payload/body - {
+  "emp_firstname": "string",
+  "emp_lastname": "string",
+  "emp_middle_name": "string",
+  "emp_gender": "Enter M for male or F for female",
+  "emp_birthday": "2024-03-10",
+  "emp_status": "string",
+  "emp_job_title": "string"
+}
+
+content-type = application/json
+
+authorization - bearer token -
+
+
+Response - 201
+
+after getting the response, status code is correct but body parameter is missing
+
+Database is not able to add this value/API-endpoint is not able to fetch the details from DB
+
+Create an employee - Get an employee
+
+query param - when we need to get specific detail from the bunch of data
+
+
+Updating an employee -
+
+hrm.syntaxtechs.net/syntaxapi/api/updateEmployee.php
+
+Type of method - PUT - (Updating the complete details of an employee)
+
+{
+  "employee_id": "103995A",
+  "emp_firstname": "thomas",
+  "emp_lastname": "kartal",
+  "emp_middle_name": "hobbes",
+  "emp_gender": "F",
+  "emp_birthday": "2014-03-09",
+  "emp_status": "doubtful",
+  "emp_job_title": "philosopher"
+}
+
+
+Create an employee - Get an employee
+
+Update an employee - Get an employee
+
+
+Update partial employee details -
+
+hrm.syntaxtechs.net/syntaxapi/api/updatePartialEmplyeesDetails.php
+
+Type of method - Patch
+
+{
+  "employee_id": "103995A",
+  "emp_middle_name": "hobbes Jr",
+  "emp_status": "Confirmed",
+  "emp_job_title": "Doctor"
+}
+
+
+PUT vs PATCH - 200 VS 201
+
+
+in put call, we update all the details (data replacement) - status code is here 200 since no new data has been added.
+in patch call, we update partial details (additional layer of data) - status code is 201 since we have added the layer of data.
+
+
+Delete Employee -
+
+Base URI = hrm.syntaxtechs.net/syntaxapi/api/deleteEmployee.php
+
+Type of method = Delete
+
+query param = employee_id = 104065A
+
+Authorizarion = Bearer token
+
+
+Create an employee - Get an employee
+
+Update an employee - Get an employee
+
+Update partial employee - Get an employee
+
+Delete employee - Get an employee
+
+Cookies - the small block of data which is used to store our information.
+
+in-house cookies
+third party cookies
+
+
+User story -
+create the employee
+verify the status code
+verify the body
+verify the headers
+
+We are testing in one environment
+testing the api in different env
+
+to validate the response and status code, we need to use chai assertion library in postman.
+
+
+Class 4 -
+
+recap -
+
+swagger -
+
+end points
+url
+required parameters and it's type
+method name
+
+
+CRUD -
+create
+retrieve
+update
+delete
+
+run collection - all request we can execute together
+
+environment variable - here we keep all the base URI of different environments
+gloabl variable - here we keep all the end points
+
+
+write user story -
+
+
+create an employee
+validate the employee is created
+validate the status code
+validate the body of the response
+validate the header of the response
+validate the speed/performance of api
+
+
+we need to write test in postmsan, we use programming language call javascript
+
+
+chai assertion - library - we use to validate response in postman
+
+postman object - pm object will be used to validate all the data
+
+
+create an employee -   prepare the request
+validate the employee is created -
+validate the status code
+validate the header of the response
+validate the speed/performance of api
+validate the body of the response
+
+
+postman comes with inbuilt javascript API
+pm is the object of postman that allows us to use different methods avialable in API chai library.
+
+pm.test (to write test, we need this)
+pm.expect (to expect something)
+pm.request
+pm.response
+pm.sendRequest
+
+
+update an employee -   prepare the request
+validate the employee is updated -
+validate the status code
+validate the header of the response
+validate the speed/performance of api
+validate the body of the response
+
+when we have multiple entries/records and we want to get specific record from there.
+
+Query parameter - it will give us specific record from the bunch of records.
+
+path parameter - it defined the path of different information under base URL (data warehouse)
+
+how to convert data in json in response.
+how to validate the keys and values.
+
+REST Assured -
+
+Class 5 -
+
+recap -
+
+Use of assertions in user story.
+
+chai assertion library
+
+javascript language is used for the assertions
+
+pm - postman object, using this object we call all the methods
+
+pm.test
+pm.expect
+pm.response
+
+using json object
+
+convert response into json
+and then compare values against keys in json format
+
+
+status code
+performance
+body/payload
+message
+headers
+
+
+Rest Assured -  it is a tool/library we use for API automation
+
+postman - a tool we use to test API's manually
+
+Rest web service - tool, language, framework - it allows us to send data in JSON format
+
+JSON object consist of keys and values
+
+javascript object notation -
+
+Rest assured - DSL (domain specific language)
+
+it is a library/tool is used for api automation
+
+
+Rest Assured - it follows behaviroal driven development approach (BDD)
+
+In BDD
+given - pre condition
+when - perform actions
+then - expected result
+
+In Rest Assured
+given - prepare the request
+when - send the request / hitting the end point
+then - expected result
+
+base URI = base Url + endpoint
+
+prepare the request - base URI
+hitting the end point - we mention end point here
+
+in rest assured - base URI = Base URL
+
+RequestSpecification = in this, we specify the request we need to send to get
+the response
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
