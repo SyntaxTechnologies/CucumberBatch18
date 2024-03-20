@@ -843,6 +843,33 @@ hamcrest matchers - this is the class which contains method to perform assertion
 jsonPath - it is a class which helps us to get the keys and values from the body/payload
 jsonPath() - this method belongs to jsonPath class
 
+Homework -
+prepare the request and validate the results
+getallemployees, getJobtitle, partiallyUpdateEmployee
+
+Class 6 -
+
+recap -
+sending the request
+hitting the end point
+getting the response
+validate the response
+
+rest assured - BDD approach
+given - prepare the request
+when - hitting the endpoint
+then - validating the response
+
+how we integrate rest assured with BDD
+
+feature file - we write scenario first
+step definition - for api steps
+runner class - to execute all api request
+
+we will create new APISteps package because the older steps package has hooks
+which we do not need in API
+
+we create constants class for API to keep all endpoints and headers
 
 
 
