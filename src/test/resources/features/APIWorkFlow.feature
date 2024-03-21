@@ -22,5 +22,18 @@ Feature: API workflow
     |mario        |germeen     |ms             |Male      |2004-08-05  |permanent |QA Engineer  |
 
 
+  @json
+  Scenario: Create employee using json payload
+    Given a request is prepared to create an employee using json payload
+    When a POST call is made to create the employee
+    Then the status code for this request should be 201
+    And the employee created contains key "Message" and value "Employee Created"
+    And the employee id "Employee.employee_id" is stored as global variable
 
-
+    @dynamic
+    Scenario: Create employee using more dynamic json payload
+      Given a request is prepared using data "mario" , "germeen" , "ms" , "M" , "2004-08-05" , "permanent" , "QA Engineer"
+      When a POST call is made to create the employee
+      Then the status code for this request should be 201
+      And the employee created contains key "Message" and value "Employee Created"
+      And the employee id "Employee.employee_id" is stored as global variable

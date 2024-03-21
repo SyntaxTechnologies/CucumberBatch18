@@ -871,6 +871,17 @@ which we do not need in API
 
 we create constants class for API to keep all endpoints and headers
 
+class 7 -
+
+recap -
+
+we added feature file for API's in framework
+we added steps  package for API's
+we added runner class for API's
+
+API constants class - to keep all the end points and header values
+
+
 
 
 
