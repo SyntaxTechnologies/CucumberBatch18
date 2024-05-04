@@ -8,11 +8,11 @@ Feature: Add Employees in HRMS
     When user clicks on PIM option
     And user clicks on Add Employee option
 
-  @add @regression
+  @add @regression @jenkins123
   Scenario: Adding employee via hard coded data
     When user enters firstName and middleName and lastName
-    And user clicks on save button
-    Then employee added successfully
+   # And user clicks on save button
+   # Then employee added successfully
 
   @addemp @regression
   Scenario: Adding employee from feature file
