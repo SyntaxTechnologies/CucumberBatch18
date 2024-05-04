@@ -1,6 +1,6 @@
 Feature: Login functionality
 
-  @sprint1 @nasima @poorna @regression @carlos @smoke @mvn @jenkins
+  @sprint1 @nasima @poorna @regression @carlos @smoke @mvn @jenkins @rkr
   Scenario: Valid admin login
     #Given user is navigated to HRMS application
     When user enters admin username and password
@@ -16,6 +16,8 @@ Feature: Login functionality
      |vvnnfnf   |Hum@nhrm123|Invalid credentials|
      |          |Hum@nhrm123|Username cannot be empty|
      |admin     |           |Password cannot be empty|
+
+
 
 
 
